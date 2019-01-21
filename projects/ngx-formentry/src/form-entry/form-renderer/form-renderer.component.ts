@@ -11,6 +11,8 @@ import { ValidationFactory } from '../form-factory/validation.factory';
 import { DataSource } from '../question-models/interfaces/data-source';
 import { FormErrorsService } from '../services/form-errors.service';
 import { QuestionGroup } from '../question-models/group-question';
+import { AdServiceProvider } from '../ad-service-provider';
+import { AdItem } from '../ad-item';
 // import { concat, of, Observable, Subject, BehaviorSubject } from 'rxjs';
 // import * as _ from 'lodash';
 
@@ -35,6 +37,7 @@ export class FormRendererComponent implements OnInit {
   public dataSource: DataSource;
   public isCollapsed = false;
   public auto: any;
+  public ads: AdItem[];
 
   // items$: Observable<any[]>;
   // itemsLoading = false;
@@ -44,6 +47,7 @@ export class FormRendererComponent implements OnInit {
     private validationFactory: ValidationFactory,
     private dataSources: DataSources,
     private formErrorsService: FormErrorsService,
+    private adServiceProvider: AdServiceProvider,
     @Inject(DOCUMENT) private document: any) {
     this.activeTab = 0;
   }
@@ -51,6 +55,14 @@ export class FormRendererComponent implements OnInit {
   public ngOnInit() {
     this.setUpRemoteSelect();
     this.setUpFileUpload();
+
+    if (this.node &&
+      this.node.question.extras &&
+      this.node.question.extras.widget) {
+      this.ads = this.adServiceProvider.getAdService().getAds();
+      console.log('added ads:::', this.ads);
+    }
+
     if (this.node && this.node.form) {
       const tab = this.node.form.valueProcessingInfo.lastFormTab;
       if (tab && tab !== this.activeTab) {

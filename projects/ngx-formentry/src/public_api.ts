@@ -51,4 +51,11 @@ export { NestedQuestion } from './form-entry/question-models/interfaces/nested-q
 export { DateTimePickerModule } from './components/date-time-picker/date-time-picker.module';
 export { NgxDateTimePickerModule } from './components/ngx-date-time-picker/ngx-date-time-picker.module';
 export { JsExpressionHelper } from './form-entry/helpers/js-expression-helper';
+export { AdComponent } from './form-entry/ad.component';
+export { AdItem } from './form-entry/ad-item';
+export { AdService } from './form-entry/ad.service';
+export { AdServiceProvider } from './form-entry/ad-service-provider';
+export { DynamicComponentFactory } from './form-entry/dynamic-component.factory';
+export { DynamicComponentFactoryProvider } from './form-entry/dynamic-component-factory-provider';
+// export { NodeBase } from './form-entry/form-factory/form-node';
 

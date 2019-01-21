@@ -3,13 +3,15 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 import { Subscriber } from 'rxjs';
 
 import {
-    QuestionFactory, Form, FormFactory, ObsValueAdapter, OrderValueAdapter,
-    EncounterAdapter, DataSources, FormErrorsService
+    QuestionFactory, Form, FormFactory, ObsValueAdapter, OrderValueAdapter, AdServiceProvider,
+    EncounterAdapter, DataSources, FormErrorsService, DynamicComponentFactoryProvider
 } from '../../dist/ngx-formentry';
 import { FormGroup } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
 
 import { MockObs } from './mock/mock-obs';
+import { AmpathAdService } from './ampath-ad.service';
+import { ADynamicComponentFactory } from './a-dynamic-component.factory';
 
 const adultForm = require('./adult-1.4.json');
 const adultFormObs = require('./mock/obs.json');
@@ -33,12 +35,17 @@ export class AppComponent {
     constructor(private questionFactory: QuestionFactory,
         private formFactory: FormFactory, private obsValueAdapater: ObsValueAdapter,
         private orderAdaptor: OrderValueAdapter,
+        private adServiceProvider: AdServiceProvider,
+        private compFactory: ADynamicComponentFactory,
+        private compFactoryProvider: DynamicComponentFactoryProvider,
         private encAdapter: EncounterAdapter, private dataSources: DataSources,
         private formErrorsService: FormErrorsService, private http: Http) {
         this.schema = adultForm;
 
     }
     ngOnInit() {
+        this.adServiceProvider.registerAdService(new AmpathAdService());
+        this.compFactoryProvider.registerAdComponentFactory(this.compFactory);
         this.dataSources.registerDataSource('drug', { searchOptions: this.sampleSearch, resolveSelectedValue: this.sampleResolve });
         this.dataSources.registerDataSource('personAttribute',
             { searchOptions: this.sampleSearch, resolveSelectedValue: this.sampleResolve });

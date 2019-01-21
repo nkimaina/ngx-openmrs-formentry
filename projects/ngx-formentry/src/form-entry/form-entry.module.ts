@@ -37,6 +37,8 @@ import { AppointmentsOverviewComponent} from '../components/appointments-overvie
 import { EncounterViewerModule } from '../encounter-viewer/encounter-viewer.module';
 import { CheckboxModule } from '../components/check-box/checkbox.module';
 import { SharedModule } from '../shared.module';
+import { AdDirective } from './ad.directive';
+import { AdBannerComponent } from './ad-banner.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { SharedModule } from '../shared.module';
         AfeNgSelectComponent,
         AppointmentsOverviewComponent,
         HistoricalValueDirective,
-        ErrorRendererComponent
+        ErrorRendererComponent,
+        AdBannerComponent,
+        AdDirective
     ],
     providers: [
         FormBuilder,
@@ -86,7 +90,8 @@ import { SharedModule } from '../shared.module';
         OrderValueAdapter,
         DebugModeService
     ],
-    exports: [FormRendererComponent, AfeNgSelectComponent,
+    exports: [FormRendererComponent, AfeNgSelectComponent, AdBannerComponent,
+        AdDirective,
         ErrorRendererComponent, DateTimePickerModule, EncounterViewerModule , NgxDateTimePickerModule]
 })
 export class FormEntryModule {

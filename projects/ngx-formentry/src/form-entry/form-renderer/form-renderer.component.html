@@ -141,6 +141,10 @@
       </div>
     </div>
 
+    <div *ngIf="node.question.extras.widget">
+      <app-ad-banner [ads]="ads" [node]="node"></app-ad-banner>
+    </div>
+
     <div class="question-info col-md-12 col-lg-12 col-sm-12" id="{{node.question.extras.id}}" *ngIf="node.question && node.question.extras.questionInfo  && node.question.extras.questionInfo !== ''  && node.question.extras.questionInfo !== ' '">
       {{node.question.extras.questionInfo}}
     </div>

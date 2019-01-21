@@ -127,6 +127,39 @@
             ]
         },
         {
+            "label":"Patient Relationships",
+            "sections":[
+              {
+                "label": "Current Relationships",
+                "isExpanded": "true",
+                "questions": [
+                  {
+                    "label": "Please review the patient's relationships:",
+                    "questionOptions": {
+                      "rendering": "select",
+                      "concept": "a8b02524-1350-11df-a1f1-0026b9348838",
+                      "answers": [
+                        {
+                          "concept": "8b715fed-97f6-4e38-8f6a-c167a42f8923",
+                          "label": "Relationships correct"
+                        },
+                        {
+                          "concept": "a899e0ac-1350-11df-a1f1-0026b9348838",
+                          "label": "Manage relationships"
+                        }
+                      ]
+                    },
+                    "widget": {
+      
+                    },
+                    "type": "obs",
+                    "validators": []
+                  }
+                ]
+              }
+            ]
+          },
+        {
             "label": "Pre-Clinic Review",
             "sections": [
                 {
@@ -137,7 +170,7 @@
                             "label": "Was this visit scheduled?",
                             "id": "scheduledVisit",
                             "questionOptions": {
-                                "rendering": "select",
+                                "rendering": "radio",
                                 "concept": "a89ff9a6-1350-11df-a1f1-0026b9348838",
                                 "answers": [
                                     {
