@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@ampath-kenya/scoped-bootstrap": "^1.0.0-custom2",
-    "@angular-devkit/build-angular": "^0.803.20",
+    "@angular-devkit/build-angular": "^0.803.25",
     "@angular/animations": "^8.2.14",
     "@angular/cdk": "^8.2.3",
     "@angular/common": "^8.2.14",
@@ -29,7 +29,7 @@
     "core-js": "^3.4.5",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "jspdf": "^1.5.3",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
